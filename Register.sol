@@ -16,3 +16,5 @@ contract Register {
     }
 " en la ulitma riga viene definida otra función que utiliza como entrada parametro tipo string almacenado en memoria asignado a la variable _info. La función es publica (puede ser llamada por otros contratos) y asigna el valor de la variable _info a info.
 }
+
+# en la variables tipo string, al compilar, tendremos una respuesta de infinty gas porque las variables tipo string pueden tener una longitud indetermiinada y por eso no puede estimarse el gas hasta que se no se asignen
