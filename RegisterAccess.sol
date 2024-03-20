@@ -2,14 +2,15 @@
 pragma solidity 0.8.19;
  
 contract RegisterAccess {
-	string[] private info;
-	address public owner;
-	mapping (address => bool) public allowlist; 
+	string[] private info; # la variable no es solamente una string sino que un array de string (los corchetes[]) #
+	address public owner; # variable para almacenar direcciones de contratos o billetereas y es publica y la llamamos owner (En Solidity, cuando declaras una variable como pública, el compilador automáticamente genera funciones “getter” para esa variable de estado. Estas funciones permiten acceder al valor de la variable desde fuera del contrato.)#
+	mapping (address => bool) public allowlist;  #variable de tipo mapa, que es una tabla en ese caso de direcciones con al lado un valor boolenano (si/no) que definirá si está o no autorizado a hacer algo #
  
 	constructor() {
     	owner = msg.sender;
     	allowlist[msg.sender] = true;
 	} 
+# el Constructor es una funcion de solidity que viene llamada unicamente al despliegue del contrato#
  
 	event InfoChange(string oldInfo, string newInfo); 
  
