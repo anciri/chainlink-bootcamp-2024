@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.19;
 
-// Deploy this contract on Mumbai
+// Deploy this contract on Optimism Sepolia
 
 import {IRouterClient} from "@chainlink/contracts-ccip/src/v0.8/ccip/interfaces/IRouterClient.sol";
 import {Client} from "@chainlink/contracts-ccip/src/v0.8/ccip/libraries/Client.sol";
@@ -12,7 +12,7 @@ import {LinkTokenInterface} from "@chainlink/contracts/src/v0.8/interfaces/LinkT
  * THIS IS AN EXAMPLE CONTRACT THAT USES UN-AUDITED CODE.
  * DO NOT USE THIS CODE IN PRODUCTION.
  */
-contract CrossSourceMinterMumbai {
+contract CrossSourceMinterOptimism {
 
     // Custom errors to provide more descriptive revert messages.
     error NotEnoughBalance(uint256 currentBalance, uint256 calculatedFees); // Used to make sure contract has enough balance to cover the fees.
@@ -33,7 +33,7 @@ contract CrossSourceMinterMumbai {
 
         // from Optimism
         address routerAddressOptimism = 0x114A20A10b43D4115e5aeef7345a1A71d2a60C57;
-        router = IRouterClient(routerAddressMumbai);
+        router = IRouterClient(routerAddressOptimism);
         linkToken = LinkTokenInterface(0xE4aB69C077896252FAFBD49EFD26B5D171A32410);
         linkToken.approve(routerAddressOptimism, type(uint256).max);
 
