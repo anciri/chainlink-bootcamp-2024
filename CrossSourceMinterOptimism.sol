@@ -31,11 +31,11 @@ contract CrossSourceMinterMumbai {
 
         // https://docs.chain.link/ccip/supported-networks/testnet
 
-        // from Mumbai
-        address routerAddressMumbai = 0x1035CabC275068e0F4b745A29CEDf38E13aF41b1;
+        // from Optimism
+        address routerAddressOptimism = 0x114A20A10b43D4115e5aeef7345a1A71d2a60C57;
         router = IRouterClient(routerAddressMumbai);
-        linkToken = LinkTokenInterface(0x326C977E6efc84E512bB9C30f76E30c160eD06FB);
-        linkToken.approve(routerAddressMumbai, type(uint256).max);
+        linkToken = LinkTokenInterface(0xE4aB69C077896252FAFBD49EFD26B5D171A32410);
+        linkToken.approve(routerAddressOptimism, type(uint256).max);
 
         // to Sepolia
         destinationChainSelector = 16015286601757825753;
@@ -43,7 +43,7 @@ contract CrossSourceMinterMumbai {
     }
 
     function mintOnSepolia() external {
-        // Mint from Mumbai network = chain[2]
+        // Mint from Optimism network = chain[2]
         Client.EVM2AnyMessage memory message = Client.EVM2AnyMessage({
             receiver: abi.encode(destinationMinter),
             data: abi.encodeWithSignature("mintFrom(address,uint256)", msg.sender, 2),
