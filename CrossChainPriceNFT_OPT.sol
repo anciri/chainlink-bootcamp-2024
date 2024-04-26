@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.19;
 
-// Deploy this contract on Sepolia
+// Deploy this contract on Optimism Sepolia
 
 // Importing OpenZeppelin contracts
 import "@openzeppelin/contracts@4.6.0/token/ERC721/extensions/ERC721URIStorage.sol";
